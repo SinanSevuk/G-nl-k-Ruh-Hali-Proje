@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Günlük Ruh Hali Takibi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="page-title">
+            Günlük Ruh Hali Takibi
+        </h1>
+        
+        <!-- İstatistikler -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="stats-title">Toplam Kayıt</div>
+                    <div class="stats-value" id="totalRecords">0</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="stats-title">Ortalama Ruh Hali</div>
+                    <div class="stats-value" id="averageMood">😐</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="stats-title">En Sık Ruh Hali</div>
+                    <div class="stats-value" id="mostFrequentMood">😐</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Ruh Hali Seçimi -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-calendar-alt"></i>
+                    Ruh Hali Kaydet
+                </h5>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label for="moodDate" class="form-label">Tarih Seçin</label>
+                        <input type="date" class="form-control" id="moodDate">
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center flex-wrap">
+                    <button class="mood-btn" data-mood="çok-mutlu" style="background-color: #ffd700;">😄</button>
+                    <button class="mood-btn" data-mood="mutlu" style="background-color: #98fb98;">🙂</button>
+                    <button class="mood-btn" data-mood="normal" style="background-color: #87ceeb;">😐</button>
+                    <button class="mood-btn" data-mood="üzgün" style="background-color: #ffb6c1;">😔</button>
+                    <button class="mood-btn" data-mood="çok-üzgün" style="background-color: #dda0dd;">😢</button>
+                </div>
+                <div class="text-center mt-4">
+                    <button id="saveMood" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Kaydet
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Geçmiş Kayıtlar -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-history"></i>
+                    Geçmiş Kayıtlar
+                </h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Ruh Hali</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="moodHistory">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
